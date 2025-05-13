@@ -1,3 +1,7 @@
+# MCP资料
+- MCP官方 Server 仓库：https://github.com/modelcontextprotocol/servers?tab=readme-ov-file  
+- MCP官方 TS SDK仓库 ：https://github.com/modelcontextprotocol/typescript-sdk?tab=readme-ov-file#overview
+
 # nest脚手架——nest-typeorm
 
 ## NestJS介绍

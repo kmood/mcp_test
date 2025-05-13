@@ -8,6 +8,7 @@ import { LoggerService } from './common/logger.service';
 import configuration from '../config/configuration';
 import { MongooseModule } from '@nestjs/mongoose';
 import { CatsModule } from './cats/cats.module';
+import { TestModuleModule } from './test-module/test-module.module';
 
 @Module({
   imports: [
@@ -26,21 +27,21 @@ import { CatsModule } from './cats/cats.module';
       // ignoreProcessEnv: true,
     }),
     // 连接pg数据库设置
-    TypeOrmModule.forRootAsync({
-      imports: [ConfigModule], // 数据库配置项依赖于ConfigModule，需在此引入
-      inject: [ConfigService], // 记得注入服务，否则useFactory函数中获取不到ConfigService
-      useFactory: (configService: ConfigService) => {
-        return {
-          type: 'postgres',
-          ...configService.get('db.pg'),
-          entities: ['dist/src/entities/*{.ts,.js}'],
-          keepConnectionAlive: true,
-          extra: {
-            max: 10, // 设置连接池的最大连接数
-          },
-        } as TypeOrmModuleOptions;
-      },
-    }),
+    // TypeOrmModule.forRootAsync({
+    //   imports: [ConfigModule], // 数据库配置项依赖于ConfigModule，需在此引入
+    //   inject: [ConfigService], // 记得注入服务，否则useFactory函数中获取不到ConfigService
+    //   useFactory: (configService: ConfigService) => {
+    //     return {
+    //       type: 'postgres',
+    //       ...configService.get('db.pg'),
+    //       entities: ['dist/src/entities/*{.ts,.js}'],
+    //       keepConnectionAlive: true,
+    //       extra: {
+    //         max: 10, // 设置连接池的最大连接数
+    //       },
+    //     } as TypeOrmModuleOptions;
+    //   },
+    // }),
     // 连接mongo数据库设置
     // MongooseModule.forRootAsync({
     //   inject: [ConfigService],
@@ -54,6 +55,7 @@ import { CatsModule } from './cats/cats.module';
     // }),
     CommonModule,
     CatsModule,
+    TestModuleModule,
   ],
   controllers: [AppController],
   providers: [AppService, LoggerService],

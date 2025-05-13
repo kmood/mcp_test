@@ -5,7 +5,9 @@
   "author": "",
   "private": true,
   "license": "UNLICENSED",
-  "engines": { "node": ">=18.0.0" },
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
@@ -23,6 +25,7 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.11.2",
     "@nestjs/axios": "^3.0.0",
     "@nestjs/common": "^9.0.0",
     "@nestjs/config": "^2.3.1",

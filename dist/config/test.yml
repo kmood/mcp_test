@@ -1,6 +1,6 @@
 # 开发环境配置
 app:
-  prefix: '/api/v1' # 基础路由
+  prefix: '/api/v1'
   port: 7201
   swagger: false
   logger:
@@ -15,19 +15,18 @@ app:
     # 文件虚拟路径, 必须以 / 开头， 如 http://localhost:8081/static/****.jpg  , 如果不需要则 设置 ''
     serveRoot: '/static'
   ip: 'http://172.16.101.21:7201'
-
 # 数据库配置
 db:
   pg:
-    host: '127.0.0.1'
-    port: 54321
+    host: '172.16.100.125'
+    port: 5432
     username: 'postgres'
-    password: '123456'
-    database: 'postgres'
+    password: '***'
+    database: 'geoc_map_publish'
   mongo:
     host: '172.16.100.194'
     port: null
-    database: '**'
+    database: 'geoc_publish'
 
 # redis 配置
 redis:
@@ -41,7 +40,6 @@ jwt:
   secretkey: 'zANDwNQVFzxlfG9myPxVWAkq4iXJEPhI'
   expiresin: '1h'
   refreshExpiresIn: '2h'
-
 # 权限 白名单配置
 perm:
   router:
@@ -53,6 +51,17 @@ perm:
         { path: '/api/oss/upload', method: 'POST' },
       ]
 
+# 用户相关
+# 初始密码， 重置密码
+user:
+  initialPassword: 'Q123456'
 
-
-
+# 数据管理配置
+geocDb:
+    host: '172.16.111.3'
+    port: 5432
+    username: 'postgres'
+    password: '****'
+    database: 'geoc_aaaabbbbccccddddeeeeffffgggghhhhjjjj'
+# 数据管理接口地址
+geocUrl : 'http://172.16.100.123:6001'

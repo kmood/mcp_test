@@ -19,11 +19,11 @@ app:
 # 数据库配置
 db:
   pg:
-    host: '127.0.0.1'
-    port: 54321
+    host: '172.16.100.125'
+    port: 5432
     username: 'postgres'
-    password: '123456'
-    database: 'postgres'
+    password: '***'
+    database: 'geoc_map_publish'
   mongo:
     host: '172.16.100.194'
     port: null
